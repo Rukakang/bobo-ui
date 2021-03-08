@@ -1,18 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3.0 + Vite" />
-  <Bobo/>
+  <div>导航栏|
+    <router-link to="/">BOBO</router-link>|
+    <router-link to="/xxx">BOBO2</router-link></div>
+  <hr />
+  <router-view />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue';
-import Bobo from './components/Bobo.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld,
-    Bobo
-  }
+
 }
 </script>
