@@ -11,9 +11,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1fb9ebde-e7b1-4c7c-b69b-cd507e81b1db" name="默认的" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/Topnav.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Bobo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Bobo2.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/HelloWorld.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Doc.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Doc.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -47,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615209460502</updated>
       <workItem from="1615209461662" duration="6401000" />
-      <workItem from="1615218855583" duration="10193000" />
+      <workItem from="1615218855583" duration="11553000" />
     </task>
     <task id="LOCAL-00001" summary="引入vue-router创建一个路由">
       <created>1615219001664</created>
@@ -63,7 +66,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615380009408</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="topNav样式更新">
+      <created>1615381211766</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615381211766</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -83,13 +93,18 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="引入vue-router创建一个路由" />
     <MESSAGE value="创建首页和文档页" />
-    <option name="LAST_COMMIT_MESSAGE" value="创建首页和文档页" />
+    <MESSAGE value="topNav样式更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="topNav样式更新" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1615345916039">
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615381686550">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1615345916039" />
+    <state x="413" y="110" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728@0.0.1366.728" timestamp="1615381686550" />
+    <state x="463" y="119" key="FileChooserDialogImpl" timestamp="1615381693444">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="463" y="119" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1615381693444" />
     <state x="184" y="8" key="SettingsEditor" timestamp="1615210305976">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
