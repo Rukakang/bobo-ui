@@ -4,13 +4,20 @@
     <div class="banner">
       <h1>啵啵UI</h1>
       <h2>一个普通的UI框架</h2>
-      <P class="actions">
+      <div class="actions">
         <a href="https://github.com/">GitHub</a>
         <router-link to ="/doc">开始</router-link>
-      </P>
+      </div>
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import Topnav from "../components/Topnav.vue";
+export default {
+  components: {Topnav}
+}
+</script>
 
 <style lang="scss" scoped>
 .banner {
@@ -36,9 +43,3 @@
 }
 </style>
 
-<script lang="ts">
-import Topnav from "../components/Topnav.vue";
-export default {
-  components: {Topnav}
-}
-</script>
