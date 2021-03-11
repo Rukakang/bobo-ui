@@ -26,10 +26,29 @@ export default {
     height: $h;
     width: $h*2;
     border: none;
-    background: grey;
+    background: #bfbfbf;
     border-radius: $h/2;
     position: relative;
+    &.checked{
+      background: #1890ff;
+    }
+    &.checked >span{
+      left: calc(100% - #{$h2} - 2px);
+    }
+    &:focus{
+      outline: none;
+    }
+    &:active{
+      > span {width: $h2 + 4px;}
+    }
+    &.checked:active {
+      > span {
+        width: $h2 + 4px;
+        margin-left: -4px;
+      }
+    }
   }
+
   span{
     width: $h2;
     height: $h2;
@@ -38,15 +57,7 @@ export default {
     position: absolute;
     top: 2px;
     left: 2px;
-    transition: left 250ms;
+    transition: all 250ms;
   }
-  button.checked{
-    background: blue;
-  }
-  button.checked >span{
-    left: calc(100% - #{$h2} - 2px);
-  }
-  button:focus{
-    outline: none;
-  }
+
 </style>
