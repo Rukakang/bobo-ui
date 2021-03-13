@@ -1,5 +1,5 @@
 <template>
-    <button class="gulu-button" :class="classes"> <!-- 根元素默认就绑定了父元素传过来的所有属性 -->
+    <button class="gulu-button" :class="classes" :disabled="disabled"> <!-- 根元素默认就绑定了父元素传过来的所有属性 -->
       <slot/>
     </button>
 </template>
@@ -21,6 +21,10 @@ export default {
         type: String,
         default: "normal",
       },
+      disabled:{
+        type:Boolean,
+        default:false
+      }
     },
     setup(props){
       const {theme,size,level} = props;
@@ -44,7 +48,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
-
+$grey: grey;
 .gulu-button {
   box-sizing: border-box;
   height: $h;
@@ -95,6 +99,13 @@ $red: red;
         border-color: darken($red, 10%);
       }
     }
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
   }
   &.gulu-theme-link{
     border-color: transparent;
@@ -109,6 +120,10 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
   &.gulu-theme-text{
@@ -131,6 +146,10 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
   &.gulu-size-big {
