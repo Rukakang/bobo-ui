@@ -1,16 +1,32 @@
 <template>
-    <button class="gulu-button" :class="{[`gulu-theme-${theme}`]:theme}"> <!-- 根元素默认就绑定了父元素传过来的所有属性 -->
+    <button class="gulu-button" :class="classes"> <!-- 根元素默认就绑定了父元素传过来的所有属性 -->
       <slot/>
     </button>
 </template>
 
 <script lang="ts">
+import {computed} from 'vue';
+
 export default {
     props:{
       theme:{
         type:String,
         default:'button'
+      },
+      size:{
+        type:String,
+        default: 'normal'
       }
+    },
+    setup(props){
+      const {theme,size} = props;
+      const classes = computed(()=>{
+        return{
+          [`gulu-theme-${theme}`]:theme,
+          [`gulu-size-${size}`]:size,
+        }
+      })
+      return {classes}
     }
 }
 
@@ -50,6 +66,33 @@ $radius: 4px;
   &::-moz-focus-inner {
     border: 0;
   }
+  &.gulu-theme-link{
+    border-color: transparent;
+    box-shadow: none;
+    color: $blue;
+    &:hover,&:focus{
+      color: lighten($blue, 10%);
+    }
+  }
+  &.gulu-theme-text{
+    border-color: transparent;
+    box-shadow: none;
+    color: inherit;
+    &:hover,&:focus{
+      background: darken(white, 5%);;
+    }
+  }
+  &.gulu-theme-button{
+    &.gulu-size-big{
+      font-size: 24px;
+      height: 48px;
+      padding: 0 16px
+    }
+    &.gulu-size-small{
+      font-size: 12px;
+      height: 20px;
+      padding: 0 4px;
+    }}
 }
 
 
