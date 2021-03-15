@@ -35,7 +35,6 @@ export default {
   components: {Topnav},
   setup(){
     const asideVisible = inject<Ref<boolean>>('asideVisible')
-    console.log(asideVisible);
     return {asideVisible};
 
   }

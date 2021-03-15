@@ -1,47 +1,48 @@
 <template>
-    <button class="gulu-button" :class="classes" :disabled="disabled"> <!-- 根元素默认就绑定了父元素传过来的所有属性 -->
-      <slot/>
-    </button>
+  <button class="gulu-button" :class="classes" :disabled="disabled">
+    <div v-if="loading" class="gulu-loadingIndicator"></div>
+    <slot />
+  </button>
 </template>
-
 <script lang="ts">
-import {computed} from 'vue';
-
+import { computed } from "vue";
 export default {
-    props:{
-      theme:{
-        type:String,
-        default:'button'
-      },
-      size:{
-        type:String,
-        default: 'normal'
-      },
-      level: {
-        type: String,
-        default: "normal",
-      },
-      disabled:{
-        type:Boolean,
-        default:false
-      }
+  props: {
+    theme: {
+      type: String,
+      default: "button",
     },
-    setup(props){
-      const {theme,size,level} = props;
-      const classes = computed(()=>{
-        return{
-          [`gulu-theme-${theme}`]:theme,
-          [`gulu-size-${size}`]:size,
-          [`gulu-level-${level}`]:level
-        }
-      })
-      return {classes}
+    size: {
+      type: String,
+      default: "normal",
+    },
+    level: {
+      type: String,
+      default: "normal",
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      default: false
     }
-}
-
+  },
+  setup(props) {
+    const { theme, size, level } = props;
+    const classes = computed(() => {
+      return {
+        [`gulu-theme-${theme}`]: theme,
+        [`gulu-size-${size}`]: size,
+        [`gulu-level-${level}`]: level,
+      };
+    });
+    return { classes };
+  },
+};
 </script>
-
-<style lang="scss" >
+<style lang="scss">
 $h: 32px;
 $border-color: #d9d9d9;
 $color: #333;
@@ -78,6 +79,34 @@ $grey: grey;
   &::-moz-focus-inner {
     border: 0;
   }
+  &.gulu-theme-link {
+    border-color: transparent;
+    box-shadow: none;
+    color: $blue;
+    &:hover,
+    &:focus {
+      color: lighten($blue, 10%);
+    }
+  }
+  &.gulu-theme-text {
+    border-color: transparent;
+    box-shadow: none;
+    color: inherit;
+    &:hover,
+    &:focus {
+      background: darken(white, 5%);
+    }
+  }
+  &.gulu-size-big {
+    font-size: 24px;
+    height: 48px;
+    padding: 0 16px;
+  }
+  &.gulu-size-small {
+    font-size: 12px;
+    height: 20px;
+    padding: 0 4px;
+  }
   &.gulu-theme-button {
     &.gulu-level-main {
       background: $blue;
@@ -99,21 +128,8 @@ $grey: grey;
         border-color: darken($red, 10%);
       }
     }
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-      &:hover {
-        border-color: $grey;
-      }
-    }
   }
-  &.gulu-theme-link{
-    border-color: transparent;
-    box-shadow: none;
-    color: $blue;
-    &:hover,&:focus{
-      color: lighten($blue, 10%);
-    }
+  &.gulu-theme-link {
     &.gulu-level-danger {
       color: $red;
       &:hover,
@@ -121,18 +137,8 @@ $grey: grey;
         color: darken($red, 10%);
       }
     }
-    &[disabled] {
-      cursor: not-allowed;
-      color: $grey;
-    }
   }
-  &.gulu-theme-text{
-    border-color: transparent;
-    box-shadow: none;
-    color: inherit;
-    &:hover,&:focus{
-      background: darken(white, 5%);;
-    }
+  &.gulu-theme-text {
     &.gulu-level-main {
       color: $blue;
       &:hover,
@@ -147,23 +153,36 @@ $grey: grey;
         color: darken($red, 10%);
       }
     }
+  }
+  &.gulu-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.gulu-theme-link, &.gulu-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
-  &.gulu-size-big {
-    font-size: 24px;
-    height: 48px;
-    padding: 0 16px;
+  > .gulu-loadingIndicator{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: $blue $blue $blue transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: gulu-spin 1s infinite linear;
   }
-  &.gulu-size-small {
-    font-size: 12px;
-    height: 20px;
-    padding: 0 4px;
-  }
-
 }
-
-
+@keyframes gulu-spin {
+  0%{transform: rotate(0deg)}
+  100%{transform: rotate(360deg)}
+}
 </style>
