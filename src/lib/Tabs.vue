@@ -1,6 +1,7 @@
 <template>
   <div>
     Tabs组件
+    <component v-for="(c,index) in defaults" :is="c" :key="index"/>
   </div>
 </template>
 
@@ -15,6 +16,8 @@ export default {
         throw new Error('Tabs子标签必须是Tab');
       }
     })
+    return {defaults};
   }
+
 }
 </script>
