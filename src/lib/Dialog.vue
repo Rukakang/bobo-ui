@@ -3,10 +3,11 @@
     <div class="gulu-dialog-overlay" @click="onClickOverlay"></div>
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
-        <header>标题<span @click="close" class="gulu-dialog-close"></span></header>
+        <header><slot name="title"/> <span @click="close" class="gulu-dialog-close"></span></header>
         <main>
           <p>第一行内容</p>
           <p>第二行内容</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
