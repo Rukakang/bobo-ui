@@ -2,27 +2,27 @@
   <div>Button 示例</div>
   <h1>示例1</h1>
   <div>
-    <Button>你好</Button>
-    <Button theme="button">你好</Button>
-    <Button theme="link">你好</Button>
-    <Button theme="text">你好</Button>
+    <Button>默认按钮</Button>
+    <Button theme="button">普通按钮</Button>
+    <Button theme="link">链接按钮</Button>
+    <Button theme="text">文字按钮</Button>
   </div>
   <h1>示例2</h1>
   <div>
     <div>
-      <Button size="big">大大大</Button>
-      <Button>普普通</Button>
-      <Button size="small">小小小</Button>
+      <Button size="big">大按钮</Button>
+      <Button>普通按钮</Button>
+      <Button size="small">小按钮</Button>
     </div>
     <div>
-      <Button theme="link" size="big">大大大</Button>
-      <Button theme="link">普普通</Button>
-      <Button size="small" theme="link">小小小</Button>
+      <Button theme="link" size="big">大链接按钮</Button>
+      <Button theme="link">普通链接按钮</Button>
+      <Button size="small" theme="link">小链接按钮</Button>
     </div>
     <div>
-      <Button size="big" theme="text">大大大</Button>
-      <Button theme="text">普普通</Button>
-      <Button size="small" theme="text">小小小</Button>
+      <Button size="big" theme="text">大文本按钮</Button>
+      <Button theme="text">普通文本按钮</Button>
+      <Button size="small" theme="text">小文本按钮</Button>
     </div>
   </div>
   <h1>示例3</h1>
@@ -47,7 +47,7 @@
   <div>
     <Button disabled>禁用按钮</Button>
     <Button theme="link" disabled>禁用链接按钮</Button>
-    <Button theme="text" disabled>禁用按钮</Button>
+    <Button theme="text" disabled>禁用文字按钮</Button>
   </div>
   <h1>示例5</h1>
   <div>
