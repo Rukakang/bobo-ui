@@ -41,7 +41,7 @@ export default {
     const showDialog = () =>{
       openDialog({
         title:h('strong',{},'标题'),
-        content:'自定义内容',
+        content:'showDialog自定义内容',
         ok(){
           console.log('show点ok');
         },
