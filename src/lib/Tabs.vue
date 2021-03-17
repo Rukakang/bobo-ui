@@ -1,6 +1,6 @@
 <template>
   <div class="gulu-tabs">
-    <div class="gulu-tabs-nav">
+    <div class="gulu-tabs-nav" ref="container">
       <div class = "gulu-tabs-nav-item" v-for="(t,index) in titles" :key="t" @click="select(t)" :ref="el=>{if(el) navItems[index]=el}" :class="{selected:t===selected}">{{t}}</div>
       <div class="gulu-tabs-nav-indicator " ref="indicator"></div>
     </div>
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {computed,ref,onMounted} from 'vue';
+import {computed,ref,onMounted,onUpdated} from 'vue';
 
 export default {
   props:{
@@ -26,12 +26,22 @@ export default {
     const defaults = context.slots.default();
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
+    const container = ref<HTMLDivElement>(null);
     onMounted(()=>{
-      const divs = navItems.value;
-      const result = divs.filter(div=>div.classList.contains('selected'))[0];
+      const result = navItems.value.filter(div=>div.classList.contains('selected'))[0];
       const {width} = result.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
-
+      const {left:left1} = container.value.getBoundingClientRect();
+      const {left:left2} = result.getBoundingClientRect();
+      indicator.value.style.left = (left2-left1) +'px';
+    })
+    onUpdated(()=>{
+      const result = navItems.value.filter(div=>div.classList.contains('selected'))[0];
+      const {width} = result.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+      const {left:left1} = container.value.getBoundingClientRect();
+      const {left:left2} = result.getBoundingClientRect();
+      indicator.value.style.left = (left2-left1) +'px';
     })
 
     defaults.forEach((tag)=>{
@@ -50,7 +60,7 @@ export default {
     const select = (title:string)=>{
       context.emit('update:selected',title)
     }
-    return {defaults,titles,current,select,navItems,indicator};
+    return {defaults,titles,current,select,navItems,indicator,container};
   }
 
 }
