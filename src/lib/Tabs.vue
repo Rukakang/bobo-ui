@@ -27,15 +27,16 @@ export default {
     const selectedItem = ref<HTMLDivElement>(null);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    const x = () => {
+    const x = ()=>{
       const {width} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
-      const {left:left1} = container.value.getBoundingClientRect();
-      const {left:left2} = selectedItem.value.getBoundingClientRect();
-      indicator.value.style.left = (left2-left1) +'px';
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = selectedItem.value.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
     }
-    watchEffect(x);
-
+    onMounted(x);
+    onUpdated(x);
     defaults.forEach((tag)=>{
       if (tag.type !== Tab){
         throw new Error('Tabs子标签必须是Tab');
