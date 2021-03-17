@@ -27,22 +27,16 @@ export default {
     const navItems = ref<HTMLDivElement[]>([]);
     const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null);
-    onMounted(()=>{
+    const x = () => {
       const result = navItems.value.filter(div=>div.classList.contains('selected'))[0];
       const {width} = result.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
       const {left:left1} = container.value.getBoundingClientRect();
       const {left:left2} = result.getBoundingClientRect();
       indicator.value.style.left = (left2-left1) +'px';
-    })
-    onUpdated(()=>{
-      const result = navItems.value.filter(div=>div.classList.contains('selected'))[0];
-      const {width} = result.getBoundingClientRect();
-      indicator.value.style.width = width + 'px';
-      const {left:left1} = container.value.getBoundingClientRect();
-      const {left:left2} = result.getBoundingClientRect();
-      indicator.value.style.left = (left2-left1) +'px';
-    })
+    }
+    onMounted(x);
+    onUpdated(x);
 
     defaults.forEach((tag)=>{
       if (tag.type !== Tab){
