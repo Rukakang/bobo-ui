@@ -55,9 +55,7 @@ export default {
 </script>
 
 <style lang = "scss" scoped>
-.router-link-active{
-  text-decoration: underline;
-}
+
 .layout {
   display: flex;
   flex-direction: column;
@@ -86,25 +84,38 @@ export default {
   }
 }
 aside {
-  background: rgba(140,159,207,1);
+  background: rgba(140, 159, 207, 1);
   color: #082745;
   width: 150px;
-  padding: 16px;
+  padding: 16px 0;
   position: fixed;
   top: 0;
   left: 0;
   padding-top: 70px;
   height: 100%;
+
   > h2 {
     margin-bottom: 4px;
+    padding: 0 16px;
   }
+
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        padding: 4px 16px;
+        display: block;
+        text-decoration: none;
+      }
+      .router-link-active{ //vue自己给router加的类
+        text-decoration: none;
+        background: white;
+      }
     }
   }
+
+  main {
+    overflow: auto;
+  }
 }
-main {
-  overflow: auto;
-}
+
 </style>
