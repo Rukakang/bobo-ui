@@ -5,7 +5,7 @@
     </div>
 
     <div class="gulu-tabs-content">
-      <component class = "gulu-tabs-content-item" v-for="c in defaults" :is="c" :class="{selected:c.props.title===selected}"/>
+      <component class = "gulu-tabs-content-item" :is="current" :key="current.props.title"/>
     </div>
 
   </div>
@@ -68,13 +68,6 @@ $border-color: #d9d9d9;
   }
   &-content {
     padding: 8px 0;
-    &-item{
-      display: none;
-      &.selected{
-        display: block;
-      }
-    }
-
   }
 }
 </style>
