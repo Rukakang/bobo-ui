@@ -29,18 +29,24 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
+  color: #082745;
   > .actions{
     padding: 8px 0;
     a {
+      &:first-child{
+        background: linear-gradient(149deg, rgba(255,69,124,1) 0%, rgba(255,117,90,1) 100%);
+      }
+      &:nth-child(2){
+        background: linear-gradient(149deg, rgba(0,127,228,1) 0%, rgba(0,179,237,1) 100%);
+    }
       margin:0 8px;
-      background: #fff;
+      color: white;
       display: inline-block;
-      $h: 28px;
-      height: $h;
-      line-height: $h;
-      border-radius: $h/2;
-      padding: 0 8px;
+      border-radius: 4px;
+      padding: 8px 24px;
+      &:hover{
+        text-decoration: none;
+      }
     }
   }
 }
