@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {computed,ref,onMounted,onUpdated,watchEffect} from 'vue';
+import {computed,ref,onMounted,onUpdated} from 'vue';
 
 export default {
   props:{
@@ -86,7 +86,6 @@ $border-color: #d9d9d9;
       background: $blue;
       left: 0;
       bottom: -1px;
-      width: 100px;
       transition: all 250ms;
     }
   }
