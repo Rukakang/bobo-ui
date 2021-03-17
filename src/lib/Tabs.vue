@@ -1,7 +1,7 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav" ref="container">
-      <div class = "gulu-tabs-nav-item" v-for="(t,index) in titles" :key="t" @click="select(t)" :ref="el=>{if(t===selected) selectedItem=el}" :class="{selected:t===selected}">{{t}}</div>
+      <div class = "gulu-tabs-nav-item" v-for="(t) in titles" :key="t" @click="select(t)" :ref="el=>{if(t===selected) selectedItem=el}" :class="{selected:t===selected}">{{t}}</div>
       <div class="gulu-tabs-nav-indicator " ref="indicator"></div>
     </div>
 
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {computed,ref,onMounted,onUpdated} from 'vue';
+import {computed,ref,onMounted,onUpdated,watchEffect} from 'vue';
 
 export default {
   props:{
@@ -34,8 +34,7 @@ export default {
       const {left:left2} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.left = (left2-left1) +'px';
     }
-    onMounted(x);
-    onUpdated(x);
+    watchEffect(x);
 
     defaults.forEach((tag)=>{
       if (tag.type !== Tab){
