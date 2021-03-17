@@ -1,8 +1,8 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav">
-      <div class = "gulu-tabs-nav-item" v-for="t in titles" :key="t" @click="select(t)" :class="{selected:t===selected}">{{t}}</div>
-      <div class="gulu-tabs-nav-indicator"></div>
+      <div class = "gulu-tabs-nav-item" v-for="(t,index) in titles" :key="t" @click="select(t)" :ref="el=>{if(el) navItems[index]=el}" :class="{selected:t===selected}">{{t}}</div>
+      <div class="gulu-tabs-nav-indicator " ref="indicator"></div>
     </div>
 
     <div class="gulu-tabs-content">
@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import Tab from "./Tab.vue";
-import {computed} from 'vue';
+import {computed,ref,onMounted} from 'vue';
 
 export default {
   props:{
@@ -24,6 +24,16 @@ export default {
   },
   setup(props,context){
     const defaults = context.slots.default();
+    const navItems = ref<HTMLDivElement[]>([]);
+    const indicator = ref<HTMLDivElement>(null);
+    onMounted(()=>{
+      const divs = navItems.value;
+      const result = divs.filter(div=>div.classList.contains('selected'))[0];
+      const {width} = result.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+
+    })
+
     defaults.forEach((tag)=>{
       if (tag.type !== Tab){
         throw new Error('Tabs子标签必须是Tab');
@@ -40,7 +50,7 @@ export default {
     const select = (title:string)=>{
       context.emit('update:selected',title)
     }
-    return {defaults,titles,current,select};
+    return {defaults,titles,current,select,navItems,indicator};
   }
 
 }
