@@ -37,7 +37,7 @@ import Button from '../lib/Button.vue'
 import Switch1Demo from './Switch1.demo.vue'
 import Switch2Demo from './Switch2.demo.vue';
 import 'prismjs';
-import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-okaidia.css'
 
 const Prism = (window as any).Prism;
 import {ref} from 'vue';
