@@ -1,17 +1,9 @@
 <template>
-  <article class="markdown-body" v-html="md">
-
-  </article>
+  <Markdown path="../markdown/install.md"/>
 </template>
-
-
 <script>
-import md from '../markdown/install.md';
+import Markdown from "../components/Markdown";
 export default {
-  data() {
-    return {
-      md
-    }
-  }
+  components: {Markdown}
 }
 </script>
