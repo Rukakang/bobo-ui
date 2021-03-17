@@ -1,15 +1,29 @@
 <template>
-  <div class="topnavAndBanner">
-   <Topnav/>
-    <div class="banner">
-      <h1>啵啵UI</h1>
-      <h2>一个普通的UI框架</h2>
-      <div class="actions">
-        <a href="https://github.com/">GitHub</a>
-        <router-link to ="/doc">开始</router-link>
+  <div>
+    <div class="topnavAndBanner">
+      <Topnav/>
+      <div class="banner">
+        <h1>啵啵UI</h1>
+        <h2>一个普通的UI框架</h2>
+        <div class="actions">
+          <a href="https://github.com/">GitHub</a>
+          <router-link to ="/doc">开始</router-link>
+        </div>
       </div>
     </div>
   </div>
+  <div class="features">
+    <svg class="icon" >
+      <use xlink:href="#icon-Vue"></use>
+    </svg>
+    <svg class="icon" >
+      <use xlink:href="#icon-typescript"></use>
+    </svg>
+    <svg class="icon" >
+      <use xlink:href="#icon-light"></use>
+    </svg>
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -22,6 +36,12 @@ export default {
 <style lang="scss" scoped>
 .topnavAndBanner{
   background: linear-gradient(149deg, rgba(140,159,207,1) 0%, rgba(29,34,67,1) 100%);
+}
+.features{
+  > svg{
+    width: 64px;
+    height: 64px;
+  }
 }
 .banner {
   padding: 100px 0;
