@@ -36,6 +36,7 @@ export default {
 <style lang="scss" scoped>
 .topnavAndBanner{
   background: linear-gradient(149deg, rgba(140,159,207,1) 0%, rgba(29,34,67,1) 100%);
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 .features{
   > svg{
