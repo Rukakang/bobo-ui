@@ -9,4 +9,4 @@ git remote add origin git@github.com:Rukakang/bobo-ui-website.git &&
 git branch -M main &&
 git push -f -u origin main &&
 cd -
-echo https://Rukakang.com/bobo-ui-website/index.html
+echo https://rukakang.github.io/bobo-ui-website/index.html#/
