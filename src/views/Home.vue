@@ -6,7 +6,7 @@
         <h1>啵啵UI</h1>
         <h2>一个普通的UI框架</h2>
         <div class="actions">
-          <a href="https://github.com/">GitHub</a>
+          <a href="https://github.com/Rukakang/bobo-ui">GitHub</a>
           <router-link to ="/doc">开始</router-link>
         </div>
       </div>

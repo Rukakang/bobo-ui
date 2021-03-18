@@ -5,6 +5,16 @@
   <Demo :component="Button3Demo" />
   <Demo :component="Button4Demo" />
   <Demo :component="Button5Demo" />
+
+  <div>
+    <span>上一节：</span>
+    <router-link class = "gulu-go" to="/doc/Switch">Switch组件</router-link>
+  </div>
+
+  <div>
+    <span>下一节：</span>
+    <router-link class = "gulu-go" to="/doc/dialog">Dialog组件</router-link>
+  </div>
 </template>
 <script lang="ts">
 import Demo from "./Demo.vue";
