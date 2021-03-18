@@ -6,8 +6,6 @@
         <div class="gulu-dialog">
           <header><slot name="title"/> <span @click="close" class="gulu-dialog-close"></span></header>
           <main>
-            <p>第一行内容</p>
-            <p>第二行内容</p>
             <slot name="content"/>
           </main>
           <footer>
