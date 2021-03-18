@@ -18,12 +18,12 @@
 <script lang="ts">
 import Button from '../lib/Button.vue'
 import 'Prismjs';
-import 'prismjs';
-import 'prismjs/themes/prism.css'
+import 'prismjs/themes/prism-okaidia.css';
 const Prism = (window as any).Prism;
 import {computed,ref} from 'vue';
 
 export default {
+  components:{Button},
   props:{
     component:{
       type:Object
@@ -37,7 +37,7 @@ export default {
     const toggle = ()=>{
         codeVisible.value =!codeVisible.value;
     }
-    return {Prism,Button,html,toggle,codeVisible}
+    return {Prism,html,toggle,codeVisible}
   }
 }
 
