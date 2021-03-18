@@ -12,6 +12,7 @@
         <pre class="language-html" v-html="html" />
       </div>
     </div>
+  </div>
 </template>
 
 <script lang="ts">
