@@ -4,8 +4,8 @@
   "files": [
     "dist/lib/*"
   ],
-  "main": "dist/lib/gulu.js",
-  "module": "dist/lib/gulu.esm.js",
+  "main": "dist/lib/bobo.js",
+  "module": "dist/lib/bobo.esm.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build"
